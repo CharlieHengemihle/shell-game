@@ -1,7 +1,11 @@
-/* Imports */
+import { getRandomNumber} from './utils.js';
+import { getRandomItem} from './utils.js';
 // import { getRandomItem } from './utils.js';
 
 /* State */
+let gameState = 'guess'; //'guess' or 'results'
+let guess = ''; // 'one' 'two' or 'three'
+let 
 
 /* Actions */
 function loadPage() {}
