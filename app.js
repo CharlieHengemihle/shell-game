@@ -45,17 +45,17 @@ function displayShells() {
         display2.classList.add('hidden');
         display3.classList.add('hidden');
         playAgainButton.classList.add('hidden');
-    }
-    if (gameState === 'results') {
-        guessOne.classList.add('hidden');
-        guessTwo.classList.add('hidden');
-        guessThree.classList.add('hidden');
-        if (guess === 'guess-1') {
-            shell1.classList.add('reveal');
-        } else {
-            guessOne.classList.add('display-3');
-        }
-    }
+    // }
+    // if (gameState === 'results') {
+    //     guessOne.classList.add('hidden');
+    //     guessTwo.classList.add('hidden');
+    //     guessThree.classList.add('hidden');
+    //     if (guess === 'guess-1') {
+    //         shell1.classList.add('reveal');
+    //     } else {
+    //         guessOne.classList.add('display-3');
+    //     }
+    // }
 }
 
 guessOne.addEventListener('click', () => {
@@ -78,7 +78,7 @@ function hidePearl(userGuess) {
     // total++;
 }
 
-const array = [1, 2, 3];
+const array = ['pearl1', 'pearl2', 'pearl3'];
 
 function playAgain() {
     gameState = 'guess';
@@ -87,17 +87,17 @@ function playAgain() {
 
 /* Component */
 // get DOM
-// const totalDisplay = document.getElementById('total-display');
+const totalDisplay = document.getElementById('total-display');
 
-// const winsDisplay = document.getElementById('wins-display');
+const winsDisplay = document.getElementById('wins-display');
 
-// const lossesDisplay = document.getElementById('losses-display');
+const lossesDisplay = document.getElementById('losses-display');
 
-// function displayScoreboard() {
-//     totalDisplay.textContent = total;
-//     winsDisplay.textContent = wins;
-//     lossesDisplay.textContent = total - wins;
-// }
+function displayScoreboard() {
+    totalDisplay.textContent = total;
+    winsDisplay.textContent = wins;
+    lossesDisplay.textContent = total - wins;
+}
 // display
 
 /* Run page load code */
