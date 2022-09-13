@@ -11,13 +11,11 @@ let results = ''; //'Found it!' or 'Not Here!'
 /* Actions */
 function loadPage() {
     displayShells();
-    // displayResults();
-    // displayScoreboard();
 }
 
-const guess1 = document.getElementById('guess-1');
-const guess2 = document.getElementById('guess-2');
-const guess3 = document.getElementById('guess-3');
+let guess1 = document.getElementById('guess-1');
+let guess2 = document.getElementById('guess-2');
+let guess3 = document.getElementById('guess-3');
 
 const shell1 = document.getElementById('shell-1');
 const shell2 = document.getElementById('shell-2');
@@ -62,31 +60,26 @@ function displayShells() {
 
 guess1.addEventListener('click', () => {
     chooseShells('guess1');
+    guess === guess1;
+    gameState === results;
 });
+
 guess2.addEventListener('click', () => {
     chooseShells('guess2');
+    guess === guess2;
+    gameState === results;
 });
+
 guess3.addEventListener('click', () => {
     chooseShells('guess3');
+    guess === guess3;
+    gameState === results;
 });
+
 playAgainButton.addEventListener('click', () => {
     playAgain();
 });
 /* Components */
-function displayGuess() {
-    if (gameState === 'results') {
-        if (guess === 'guess1') {
-            shell1.classList.add('reveal')
-        } else {
-        if (guess === 'guess2') {
-            shell2.classList.add('reveal')
-        } else {
-            guess === 'guess3') 
-            shell3.classList.add('reveal')
-        }
-        }
-    }
-}
 
 function chooseShells(userGuess) {
     gameState = 'results';
@@ -96,6 +89,21 @@ function chooseShells(userGuess) {
     displayGuess();
 }
 
+function displayGuess() {
+    if (gameState === 'results') {
+        if (guess === guess1) {
+            shell1.classList.add('reveal')
+        } else {
+        if (guess === guess2) {
+            shell2.classList.add('reveal')
+        } else {
+            guess === guess3 
+            shell3.classList.add('reveal')
+        }
+        }
+    }
+}
+
 function displayPearl() {
     if (gameState === 'results') {
         if (pick === 'pearl1') {
@@ -103,36 +111,35 @@ function displayPearl() {
             shell1.classList.add('reveal');
         } else {
             if (pick === 'pearl2') {
-            pearl2.classList.remove('hidden');
-            shell2.classList.add('reveal'):
-        } else {
-            pick === 'pearl3';
-            pearl3.classList.remove('hidden');
-            shell3.classList.add('reveal'):
+                pearl2.classList.remove('hidden');
+                shell2.classList.add('reveal');
+            } else {
+                pick === 'pearl3';
+                pearl3.classList.remove('hidden');
+                shell3.classList.add('reveal');
+            }
         }
     }
-}
 
 
-function playAgain() {
-    gameState = 'guess';
-    loadPage();
-}
+// function playAgain() {
+//     gameState = 'guess';
+//     loadPage();
+// }
 
 /* Component */
 // get DOM
-const totalDisplay = document.getElementById('total-display');
+// const totalDisplay = document.getElementById('total-display');
 
-const winsDisplay = document.getElementById('wins-display');
+// const winsDisplay = document.getElementById('wins-display');
 
-const lossesDisplay = document.getElementById('losses-display');
+// const lossesDisplay = document.getElementById('losses-display');
 
-function displayScoreboard() {
-    totalDisplay.textContent = total;
-    winsDisplay.textContent = wins;
-    lossesDisplay.textContent = total - wins;
-}
+// function displayScoreboard() {
+//     totalDisplay.textContent = total;
+//     winsDisplay.textContent = wins;
+//     lossesDisplay.textContent = total - wins;
+// }
 // display
 
 /* Run page load code */
-loadPage();
