@@ -15,9 +15,9 @@ function loadPage() {
     // displayScoreboard();
 }
 
-const guessOne = document.getElementById('guess-1');
-const guessTwo = document.getElementById('guess-2');
-const guessThree = document.getElementById('guess-3');
+const guess1 = document.getElementById('guess-1');
+const guess2 = document.getElementById('guess-2');
+const guess3 = document.getElementById('guess-3');
 
 const shell1 = document.getElementById('shell-1');
 const shell2 = document.getElementById('shell-2');
@@ -30,6 +30,8 @@ const pearl3 = document.getElementById('pearl-3');
 const display1 = document.getElementById('display-1');
 const display2 = document.getElementById('display-2');
 const display3 = document.getElementById('display-3');
+
+let pearls = ['pearl1', 'pearl2', 'pearl3'];
 
 const playAgainButton = document.getElementById('play-again-button');
 // event listeners
@@ -58,27 +60,59 @@ function displayShells() {
     // }
 }
 
-guessOne.addEventListener('click', () => {
-    hidePearl('guessOne');
+guess1.addEventListener('click', () => {
+    chooseShells('guess1');
 });
-guessTwo.addEventListener('click', () => {
-    hidePearl('guessTwo');
+guess2.addEventListener('click', () => {
+    chooseShells('guess2');
 });
-guessThree.addEventListener('click', () => {
-    hidePearl('guessThree');
+guess3.addEventListener('click', () => {
+    chooseShells('guess3');
 });
 playAgainButton.addEventListener('click', () => {
     playAgain();
 });
 /* Components */
-function hidePearl(userGuess) {
-    gameState = 'results';
-    guess = userGuess;
-    reveal = getRandomItem(array);
-    // total++;
+function displayGuess() {
+    if (gameState === 'results') {
+        if (guess === 'guess1') {
+            shell1.classList.add('reveal')
+        } else {
+        if (guess === 'guess2') {
+            shell2.classList.add('reveal')
+        } else {
+            guess === 'guess3') 
+            shell3.classList.add('reveal')
+        }
+        }
+    }
 }
 
-const array = ['pearl1', 'pearl2', 'pearl3'];
+function chooseShells(userGuess) {
+    gameState = 'results';
+    guess = userGuess;
+    reveal = getRandomItem(pearls.length);
+    displayPearl();
+    displayGuess();
+}
+
+function displayPearl() {
+    if (gameState === 'results') {
+        if (pick === 'pearl1') {
+            pearl1.classList.remove('hidden');
+            shell1.classList.add('reveal');
+        } else {
+            if (pick === 'pearl2') {
+            pearl2.classList.remove('hidden');
+            shell2.classList.add('reveal'):
+        } else {
+            pick === 'pearl3';
+            pearl3.classList.remove('hidden');
+            shell3.classList.add('reveal'):
+        }
+    }
+}
+
 
 function playAgain() {
     gameState = 'guess';
