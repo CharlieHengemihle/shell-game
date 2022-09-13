@@ -3,16 +3,16 @@ import { getRandomItem } from './utils.js';
 // import { getRandomItem } from './utils.js';
 
 /* State */
-let gameState = 'results'; //'guess' or 'results'
-let guess = 'shell-1'; // 'shell-1' 'shell-2' or 'shell-3'
-let reveal = 'pearl-1'; //'pearl-1' 'pearl-2' or 'pearl-3'
-let results = 'Found it'; //'Found it!' or 'Not Here!'
+let gameState = ''; //'guess' or 'results'
+let guess = ''; // 'shell-1' 'shell-2' or 'shell-3'
+let reveal = ''; //'pearl-1' 'pearl-2' or 'pearl-3'
+let results = ''; //'Found it!' or 'Not Here!'
 
 /* Actions */
 function loadPage() {
     displayShells();
     // displayResults();
-    displayScoreboard();
+    // displayScoreboard();
 }
 
 const guessOne = document.getElementById('guess-1');
@@ -67,13 +67,19 @@ guessTwo.addEventListener('click', () => {
 guessThree.addEventListener('click', () => {
     hidePearl('guessThree');
 });
+playAgainButton.addEventListener('click', () => {
+    playAgain();
+});
 /* Components */
 function hidePearl(userGuess) {
     gameState = 'results';
     guess = userGuess;
     reveal = getRandomItem(array);
-    total++;
+    // total++;
 }
+
+const array = [1, 2, 3];
+
 function playAgain() {
     gameState = 'guess';
     loadPage();
@@ -81,17 +87,17 @@ function playAgain() {
 
 /* Component */
 // get DOM
-const totalDisplay = document.getElementById('total-display');
+// const totalDisplay = document.getElementById('total-display');
 
-const winsDisplay = document.getElementById('wins-display');
+// const winsDisplay = document.getElementById('wins-display');
 
-const lossesDisplay = document.getElementById('losses-display');
+// const lossesDisplay = document.getElementById('losses-display');
 
-function displayScoreboard() {
-    totalDisplay.textContent = total;
-    winsDisplay.textContent = wins;
-    lossesDisplay.textContent = total - wins;
-}
+// function displayScoreboard() {
+//     totalDisplay.textContent = total;
+//     winsDisplay.textContent = wins;
+//     lossesDisplay.textContent = total - wins;
+// }
 // display
 
 /* Run page load code */
