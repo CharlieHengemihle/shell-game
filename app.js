@@ -34,7 +34,7 @@ let pearls = ['pearl1', 'pearl2', 'pearl3'];
 const playAgainButton = document.getElementById('play-again-button');
 // event listeners
 function displayShells() {
-    if (gameState === 'guess') {
+    if ((gameState = 'guess')) {
         pearl1.classList.add('hidden');
         pearl2.classList.add('hidden');
         pearl3.classList.add('hidden');
@@ -45,7 +45,7 @@ function displayShells() {
         display2.classList.add('hidden');
         display3.classList.add('hidden');
         playAgainButton.classList.add('hidden');
-    // }
+    }
     // if (gameState === 'results') {
     //     guessOne.classList.add('hidden');
     //     guessTwo.classList.add('hidden');
@@ -60,20 +60,20 @@ function displayShells() {
 
 guess1.addEventListener('click', () => {
     chooseShells('guess1');
-    guess === guess1;
-    gameState === results;
+    guess = guess1;
+    gameState = results;
 });
 
 guess2.addEventListener('click', () => {
     chooseShells('guess2');
-    guess === guess2;
-    gameState === results;
+    guess = guess2;
+    gameState = results;
 });
 
 guess3.addEventListener('click', () => {
     chooseShells('guess3');
-    guess === guess3;
-    gameState === results;
+    guess = guess3;
+    gameState = results;
 });
 
 playAgainButton.addEventListener('click', () => {
@@ -90,23 +90,22 @@ function chooseShells(userGuess) {
 }
 
 function displayGuess() {
-    if (gameState === 'results') {
+    if ((gameState = 'results')) {
         if (guess === guess1) {
-            shell1.classList.add('reveal')
+            shell1.classList.add('reveal');
         } else {
-        if (guess === guess2) {
-            shell2.classList.add('reveal')
-        } else {
-            guess === guess3 
-            shell3.classList.add('reveal')
-        }
+            if (guess === guess2) {
+                shell2.classList.add('reveal');
+            } else {
+                shell3.classList.add('reveal');
+            }
         }
     }
 }
 
 function displayPearl() {
-    if (gameState === 'results') {
-        if (pick === 'pearl1') {
+    if ((gameState = 'results')) {
+        if ((pick = 'pearl1')) {
             pearl1.classList.remove('hidden');
             shell1.classList.add('reveal');
         } else {
@@ -120,7 +119,7 @@ function displayPearl() {
             }
         }
     }
-
+}
 
 // function playAgain() {
 //     gameState = 'guess';
