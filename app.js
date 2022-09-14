@@ -9,9 +9,6 @@ let reveal = ''; //'pearl-1' 'pearl-2' or 'pearl-3'
 let results = ''; //'Found it!' or 'Not Here!'
 
 /* Actions */
-// function loadPage() {
-//     displayShells();
-// }
 
 let guess1 = document.getElementById('guess-1');
 let guess2 = document.getElementById('guess-2');
@@ -124,7 +121,7 @@ function displayPearl() {
 
 function playAgain() {
     gameState = 'guess';
-    loadPage();
+    displayShells();
 }
 
 /* Component */
