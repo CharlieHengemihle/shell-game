@@ -3,9 +3,9 @@ import { getRandomItem } from './utils.js';
 // import { getRandomItem } from './utils.js';
 
 /* State */
-// let gameState = ''; //'guess' or 'results'
+let gameState = ['results', 'guess']; //'guess' or 'results'
 let guess = ''; // 'shell-1' 'shell-2' or 'shell-3'
-// let reveal = ''; //'pearl-1' 'pearl-2' or 'pearl-3'
+let reveal = ''; //'pearl-1' 'pearl-2' or 'pearl-3'
 let results = ''; //'Found it!' or 'Not Here!'
 
 /* Actions */
@@ -34,7 +34,7 @@ let pearls = ['pearl1', 'pearl2', 'pearl3'];
 const playAgainButton = document.getElementById('play-again-button');
 // event listeners
 function displayShells() {
-    if ((ameState = 'guess') {
+    if ((gameState = 'guess')) {
         pearl1.classList.add('hidden');
         pearl2.classList.add('hidden');
         pearl3.classList.add('hidden');
@@ -46,17 +46,18 @@ function displayShells() {
         display3.classList.add('hidden');
         playAgainButton.classList.add('hidden');
     }
-    // if (gameState === 'results') {
-    //     guessOne.classList.add('hidden');
-    //     guessTwo.classList.add('hidden');
-    //     guessThree.classList.add('hidden');
-    //     if (guess === 'guess-1') {
-    //         shell1.classList.add('reveal');
-    //     } else {
-    //         guessOne.classList.add('display-3');
-    //     }
-    // }
 }
+
+// if (gameState === 'results') {
+//     guessOne.classList.add('hidden');
+//     guessTwo.classList.add('hidden');
+//     guessThree.classList.add('hidden');
+//     if (guess === 'guess-1') {
+//         shell1.classList.add('reveal');
+//     } else {
+//         guessOne.classList.add('display-3');
+//     }
+// }
 
 guess1.addEventListener('click', () => {
     chooseShells('guess1');
@@ -84,13 +85,13 @@ playAgainButton.addEventListener('click', () => {
 function chooseShells(userGuess) {
     gameState = 'results';
     guess = userGuess;
-    reveal = getRandomItem(pearls.length);
+    reveal = getRandomItem(pearls);
     displayPearl();
     displayGuess();
 }
 
 function displayGuess() {
-    if (gameState = 'results') {
+    if ((gameState = 'results')) {
         if (guess === guess1) {
             shell1.classList.add('reveal');
         } else {
@@ -103,23 +104,23 @@ function displayGuess() {
     }
 }
 
-// function displayPearl() {
-//     if (gameState = 'results') {
-//         if (pick = 'pearl1') {
-//             pearl1.classList.remove('hidden');
-//             shell1.classList.add('reveal');
-//         } else {
-//             if (pick === 'pearl2') {
-//                 pearl2.classList.remove('hidden');
-//                 shell2.classList.add('reveal');
-//             } else {
-//                 pick === 'pearl3';
-//                 pearl3.classList.remove('hidden');
-//                 shell3.classList.add('reveal');
-//             }
-//         }
-//     }
-// }
+function displayPearl() {
+    if ((gameState = 'results')) {
+        if ((reveal = 'pearl1')) {
+            pearl1.classList.remove('hidden');
+            shell1.classList.add('reveal');
+        } else {
+            if (reveal === 'pearl2') {
+                pearl2.classList.remove('hidden');
+                shell2.classList.add('reveal');
+            } else {
+                reveal === 'pearl3';
+                pearl3.classList.remove('hidden');
+                shell3.classList.add('reveal');
+            }
+        }
+    }
+}
 
 function playAgain() {
     gameState = 'guess';
