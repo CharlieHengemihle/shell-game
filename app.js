@@ -3,7 +3,7 @@ import { getRandomItem } from './utils.js';
 // import { getRandomItem } from './utils.js';
 
 /* State */
-let gameState = ['results', 'guess']; //'guess' or 'results'
+// let gameState = ['results', 'guess']; //'guess' or 'results'
 let guess = ''; // 'shell-1' 'shell-2' or 'shell-3'
 let reveal = ''; //'pearl-1' 'pearl-2' or 'pearl-3'
 let results = ''; //'Found it!' or 'Not Here!'
